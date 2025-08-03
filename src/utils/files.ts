@@ -26,7 +26,9 @@ export function toValidPackageName(projectName: string): string {
     .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/^[._]/, '')
-    .replace(/[^a-z0-9-~]+/g, '-');
+    .replace(/[^a-z0-9-~]+/g, '-')
+    .replace(/^-+|-+$/g, '') // Remove leading and trailing hyphens
+    .replace(/-+/g, '-'); // Replace multiple consecutive hyphens with single hyphen
 }
 
 export function copyDir(srcDir: string, destDir: string): void {
@@ -81,4 +83,50 @@ export function setupReactFiles(root: string, projectName: string): void {
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
   pkg.name = projectName;
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+}
+
+// Debounce function
+export function debounce<T extends (...args: any[]) => any>(
+  func: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  let timeoutId: NodeJS.Timeout | undefined;
+  
+  return (...args: Parameters<T>): void => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+}
+
+// Simple Logger class
+export class SimpleLogger {
+  constructor(private debug: boolean = false) {}
+
+  log(level: 'info' | 'warn' | 'error' | 'debug', message: string, ...args: any[]): void {
+    const timestamp = new Date().toISOString();
+    const logLevel = level.toUpperCase();
+    const logMessage = `[${timestamp}] [${logLevel}]`;
+
+    switch (level) {
+      case 'info':
+        console.log(logMessage, message, ...args);
+        break;
+      case 'warn':
+        console.warn(logMessage, message, ...args);
+        break;
+      case 'error':
+        console.error(logMessage, message, ...args);
+        break;
+      case 'debug':
+        if (this.debug) {
+          console.debug(logMessage, message, ...args);
+        }
+        break;
+    }
+  }
 }

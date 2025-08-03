@@ -686,7 +686,7 @@ function executeCustomCommand(command, targetDir, selectedOptions = null) {
 }
 
 const { cyan, green, red, yellow } = colors;
-const __dirname$1 = path.dirname(node_url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('create-mycustomlib.js', document.baseURI).href))));
+const __dirname$1 = path.dirname(node_url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('create-psrworld.js', document.baseURI).href))));
 // Get template directory path - adjust for the new structure
 const templateDir = path.resolve(__dirname$1, '../../templates');
 function cancel() {

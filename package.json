@@ -1,8 +1,11 @@
 {
   "name": "create-psrworld",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript-powered project scaffolding tool with dual CommonJS/ESM build support",
-  "keywords": ["create", "psrworld",
+  "type": "module",
+  "keywords": [
+    "create",
+    "psrworld",
     "typescript",
     "cli",
     "scaffolding",
@@ -73,6 +76,7 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/cross-spawn": "^6.0.6",
     "@types/jest": "^29.5.8",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^20.9.0",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
@@ -90,5 +94,8 @@
     "cross-spawn": "^7.0.3",
     "mri": "^1.2.0",
     "picocolors": "^1.0.0"
+  },
+  "publishConfig": {
+  "access": "public"
   }
 }

@@ -19,9 +19,7 @@ function checkBuildOutputs() {
 
   const requiredFiles = [
     'dist/cjs/index.js',
-    'dist/cjs/index.js.map',
     'dist/esm/index.js', 
-    'dist/esm/index.js.map',
     'dist/types/index.d.ts',
     'dist/types/types.d.ts',
     'dist/types/config/frameworks.d.ts',
@@ -29,7 +27,8 @@ function checkBuildOutputs() {
     'dist/types/utils/files.d.ts',
     'dist/types/utils/helpers.d.ts',
     'dist/types/utils/commands.d.ts',
-    'bin/create-mycustomlib.js'
+    'bin/create-psrworld.js',
+    'templates'
   ];
 
   let allFilesExist = true;
@@ -95,7 +94,7 @@ function testImports() {
 
   // Test CLI binary
   try {
-    const binFile = fs.readFileSync('bin/create-mycustomlib.js', 'utf8');
+    const binFile = fs.readFileSync('bin/create-psrworld.js', 'utf8');
     if (binFile.includes('#!/usr/bin/env node') && binFile.length > 100) {
       console.log('✅ CLI binary generated successfully');
     } else {
@@ -146,7 +145,7 @@ function checkPackageJson() {
 }
 
 function main() {
-  console.log('🔧 Build Verification Script for create-mycustomlib\n');
+  console.log('🔧 Build Verification Script for create-psrworld\n');
 
   checkBuildOutputs();
   testImports();
@@ -157,7 +156,7 @@ function main() {
   console.log('  npm publish');
   console.log('\nOr test it locally:');
   console.log('  npm link');
-  console.log('  create-mycustomlib --help');
+  console.log('  create-psrworld --help');
 }
 
 if (require.main === module) {
