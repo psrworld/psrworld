@@ -1,0 +1,63 @@
+# Source files
+src/
+tests/
+
+# Configuration files
+.eslintrc.js
+.prettierrc
+jest.config.js
+rollup.config.*.js
+tsconfig.json
+
+# Development dependencies
+node_modules/
+coverage/
+
+# Build tools
+rollup.config.base.js
+
+# Documentation (keep README.md)
+docs/
+*.md
+!README.md
+
+# Git files
+.git/
+.gitignore
+
+# Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+tmp/
+temp/
+
+# Test files
+**/*.test.*
+**/*.spec.*
+__tests__/
+
+# Coverage
+.nyc_output
+*.lcov
+
+# Cache
+.eslintcache
+*.tsbuildinfo
+
+# Environment
+.env*
